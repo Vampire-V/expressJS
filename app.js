@@ -3,8 +3,18 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongoose = require('mongoose');
 
-const indexRouter = require('./routes');
+var mongoDB = 'mongodb://pipat1234:pipat1234@ds257838.mlab.com:57838/mydb';
+mongoose.connect(mongoDB);
+mongoose.Promise = global.Promise;
+var db = mongoose.connection;
+db.on('connected', console.error.bind(console, 'MongoDB connection'));
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+
+var index = require('./routes/index');
+var users = require('./routes/users');
 
 const app = express();
 
@@ -19,7 +29,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //  Connect all our routes to our application
-app.use('/', indexRouter);
+app.use('/', index);
+app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
