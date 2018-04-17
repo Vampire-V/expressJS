@@ -37,3 +37,8 @@ body {
     color: #efb22e;
     text-decoration: none;
 }
+.pnx-msg-icon pnx-icon-msg-warning {
+    width: 24px !important;
+    height: 24px !important;
+}
+

@@ -2,16 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // create a schema
-const BookSchema = new Schema({
+const productSchema = new Schema({
     title: {
         type: String,
         required: true
     },
-    iamg: {
+    img: {
         part1: String,
         part2: String,
         part3: String,
-        type: String,
+        type: Object,
         required: true
     },
     price: {
@@ -28,6 +28,14 @@ const BookSchema = new Schema({
     },
     quantity: {
         type: Number,
+        required: true
+    },
+    dateadd: {
+        type: Date,
+        default: Date.now
+    },
+    proType: {
+        type: String,
         required: true
     },
     description: {

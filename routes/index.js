@@ -1,11 +1,24 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+var storage = multer.diskStorage({
+	destination:(req,file,cb) => {
+		cb(null,'public/images/upload');
+	},
+	filename: (req,file,cb) => {
+		cb(null,Date.now() + file.originalname);
+ 
+	}
+});
+var upload = multer({ storage:storage });
 
-const person_controller = require('../controllers/personCtr');
+const people_controller = require('../controllers/peopleCtr');
+const product_controller = require('../controllers/productCtr');
 
-//person get all
-router.get('/person', person_controller.person_list);
-router.post('/register/person',person_controller.person_create_post);
+//people  router
+router.get('/people', people_controller.people_list);
+
+router.post('/register/people',people_controller.people_create_post);
 
 
 /* GET home page. */
@@ -38,9 +51,16 @@ router.get('/blog-detail', (req, res, next) => {
 });
 
 //product router
-router.get('/product', (req, res, next) => {
-  res.render('product', { title: 'Express' });
-});
+// router.get('/product', (req, res, next) => {
+//   res.render('product', { title: 'Express' });
+// });
+// router.get('/addProduct', (req, res, next) => {
+//   res.render('Addproduct', { title: 'Express' });
+// });
+
+// 
+router.post('/addProduct',upload.any(),product_controller.product_create_post);
+router.get('/product', product_controller.product_list);
 
 
 

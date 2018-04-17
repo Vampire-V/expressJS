@@ -1,0 +1,19 @@
+<div class="top-bar">
+    <div class="content-topbar flex-sb-m h-full container">
+        <div class="left-top-bar">
+            Free shipping for standard order over $100
+            
+        </div>
+
+        <div class="right-top-bar flex-w h-full">
+                <a href="addProduct" class="flex-c-m trans-04 p-lr-25"  >
+                        AddProduct</a> 
+            <a href="#" class="flex-c-m trans-04 p-lr-25" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+                Login</a>   
+            <% include Login.ejs %>
+                <a href="#" class="flex-c-m trans-04 p-lr-25" onclick="document.getElementById('id00').style.display='block'" style="width:auto;">
+                    Sign Up</a>
+                <% include Register.ejs %>
+        </div>
+    </div>
+</div>
