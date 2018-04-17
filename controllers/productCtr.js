@@ -6,6 +6,9 @@ exports.product_list = (req, res) => {
     Product.find().find((err, data) => {
         console.log(data.img);
         res.render('product', { data: data,title: 'Express' });
+        res.render('index', { data: data,title: 'Express' });
+        res.render('home-02', { title: 'Express' });
+        res.render('home-03', { title: 'Express' });
         // res.render('/', { data: data,title: 'Express' });
     });
     // res.send('<H1>NOT IMPLEMENTED: Author list</H1>');

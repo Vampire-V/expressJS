@@ -22,15 +22,10 @@ router.post('/register/people',people_controller.people_create_post);
 
 
 /* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Express' });
-});
-router.get('/h2', (req, res, next) => {
-  res.render('home-02', { title: 'Express' });
-});
-router.get('/h3', (req, res, next) => {
-  res.render('home-03', { title: 'Express' });
-});
+router.get('/', product_controller.product_list);
+
+router.get('/h2', product_controller.product_list);
+router.get('/h3',product_controller.product_list);
 
 
 //rout contact
@@ -54,9 +49,9 @@ router.get('/blog-detail', (req, res, next) => {
 // router.get('/product', (req, res, next) => {
 //   res.render('product', { title: 'Express' });
 // });
-// router.get('/addProduct', (req, res, next) => {
-//   res.render('Addproduct', { title: 'Express' });
-// });
+router.get('/addProduct', (req, res, next) => {
+  res.render('Addproduct', { title: 'Express' });
+});
 
 // 
 router.post('/addProduct',upload.any(),product_controller.product_create_post);
