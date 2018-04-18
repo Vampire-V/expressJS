@@ -7,43 +7,33 @@
 	</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<% include href.ejs %>
+	<% include path/href.ejs %>
 </head>
 
-<body class="animsition">
+<body>
 
 	<!-- Header -->
-	<% include Headerindex.ejs %>
+	<% include header/Headerindex.ejs %>
 
-		<!-- Cart -->
-		<% include Cart.ejs %>
-
-
-
-			<!-- Slider -->
-			<% include Sliderindex.ejs %>
+		<!-- Slider -->
+		<% include path/Sliderindex.ejs %>
 
 
-				<!-- Banner -->
-				<% include Banner.ejs %>
 
 
-					<!-- Product -->
-					<% include ProductList.ejs %>
-
-						<!-- Footer -->
-						<% include Footer.ejs %>
+			<!-- Banner -->
 
 
-							<!-- Back to top -->
-						
-							<% include Back-to-top.ejs %>
 
-							<!-- Modal1 -->
-							<% include Cartmodal.ejs %>
+			<!-- Product -->
 
-								<!-- Script -->
-								<% include src.ejs %>
+
+
+
+
+
+			<!-- Footer -->
+			<% include footer/Footer.ejs %>
 
 </body>
 

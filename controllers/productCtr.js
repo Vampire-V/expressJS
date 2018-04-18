@@ -2,17 +2,10 @@ const Product = require('../models/product');
 
 
 // Display list of all Authors.
-exports.product_list = (req, res) => {
+exports.product_list_get = (req,res,next) => {
     Product.find().find((err, data) => {
-        console.log(data.img);
         res.render('product', { data: data,title: 'Express' });
-        res.render('index', { data: data,title: 'Express' });
-        res.render('home-02', { title: 'Express' });
-        res.render('home-03', { title: 'Express' });
-        // res.render('/', { data: data,title: 'Express' });
     });
-    // res.send('<H1>NOT IMPLEMENTED: Author list</H1>');
-    // res.render('index', { title: 'Express' });
 };
 
 // Display detail page for a specific Author.
@@ -21,8 +14,8 @@ exports.product_detail = (req, res) => {
 };
 
 // Display Author create form on GET.
-exports.product_create_get = (req, res) => {
-    res.send('NOT IMPLEMENTED: Author create GET');
+exports.product_create_get = (req,res,next) => {
+    res.render('Addproduct', { title: 'Express' });
 };
 
 // Handle Author create on POST.
@@ -79,25 +72,3 @@ exports.product_update_post = (req, res) => {
     res.send('NOT IMPLEMENTED: Author update POST');
 };
 
-exports.product_Login_get = (req, person, password, done) => {
-    User.findOne({
-        username: req.body.uname
-    }, (err, user) => {
-        if (err) {
-            res.send('error');
-        }
-        if (!user) {
-            return done(null, false, {
-                errMsg: 'User does not exist, please' +
-                    ' <a class="errMsg" href="/signup">signup</a>'
-            });
-        }
-        if (!user.validPassword(password)) {
-            return done(null, false, {
-                errMsg: 'Invalid password try again'
-            });
-        }
-        return done(null, user);
-    });
-
-};

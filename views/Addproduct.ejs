@@ -1,152 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>
-    <%= title %>
-  </title>
-  <% include href.ejs %>
+  <title><%= title %></title>
+  <% include path/href.ejs %>
 </head>
-
-<body class="animsition">
+<body>
   <!-- Header -->
-  <% include Headerindex.ejs %>
-    <!-- Cart -->
-    <% include Cart.ejs %>
-      <!-- Title page -->
-      <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
-        <h2 class="ltext-105 cl0 txt-center">
-          AddProducts
-        </h2>
-      </section>
+	<% include header/Headerindex.ejs %>
 
-      <section class="bg0 p-t-104 p-b-116">
-        <div class="container">
-          <div class="flex-w flex-tr">
-            <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-              <form action="/addProduct" method="post" enctype="multipart/form-data">
-                <h4 class="mtext-105 cl2 txt-center p-b-30">
-                  Add Products
-                </h4>
-                <div class="bor8 m-b-20 how-pos4-parent">
-                  <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="title" placeholder="Title Product">
-                  <img class="how-pos4 pointer-none" src="images/icons/005-tablet.png" alt="ICON" height="24" width="24">
-                </div>
-                <div class="bor8 m-b-20 how-pos4-parent">
-                  <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="number" name="price" placeholder="Price">
-                  <img class="how-pos4 pointer-none" src="images/icons/021-get-money.png" alt="ICON" height="24" width="24">
-                </div>
-                <div class="bor8 m-b-20 how-pos4-parent">
-                  <select id="size" name="size" class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30">
-                    <option value="No" selected>Choose an option</option>
-                    <option value="Size S">Size S</option>
-                    <option value="Size S">Size M</option>
-                    <option value="Size S">Size L</option>
-                    <option value="Size S">Size XL</option>
-                  </select>
-                  <!-- <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="size" placeholder="Size"> -->
-                  <img class="how-pos4 pointer-none" src="images/icons/018-clothes.png" alt="ICON" height="24" width="24">
-                </div>
 
-                <div class="bor8 m-b-20 how-pos4-parent">
-                  <select id="color" name="color" class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30">
-                    <option value="No" selected>Choose an option</option>
-                    <option value="Red">Red</option>
-                    <option value="Blue">Blue</option>
-                    <option value="White">White</option>
-                    <option value="Grey">Grey</option>
-                  </select>
+   <!-- Title page -->
+   <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
+    <h2 class="ltext-105 cl0 txt-center">
+      AddProducts
+    </h2>
+  </section>
 
-                  <!-- <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="color" placeholder="color"> -->
-                  <img class="how-pos4 pointer-none" src="images/icons/007-network.png" alt="ICON" height="24" width="24">
-                </div>
-                <div class="bor8 m-b-20 how-pos4-parent">
-                  <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="number" name="quantity" placeholder="quantity">
-                  <img class="how-pos4 pointer-none" src="images/icons/023-trolley.png" alt="ICON" height="24" width="24">
-                </div>
-                <div class="bor8 m-b-20 how-pos4-parent">
-                  <select id="proType" name="proType" class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30">
-                    <option value="No" selected>Choose an option</option>
-                    <option value="Women">Women</option>
-                    <option value="Men">Men</option>
-                    <option value="Bag">Bag</option>
-                    <option value="Shoes">Shoes</option>
-                    <option value="Watches">Watches</option>
-                  </select>
-                  <!-- <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="proType" placeholder="proType"> -->
-                  <img class="how-pos4 pointer-none" src="images/icons/010-package.png" alt="ICON" height="24" width="24">
-                </div>
-
-                <div class="bor8 m-b-30">
-                  <textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="description" placeholder="Description"></textarea>
-                </div>
+  <section class="bg0 p-t-104 p-b-116">
+    <div class="container">
+      <div class="flex-w flex-tr">
+        <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
+          <form action="/addProduct" method="post" enctype="multipart/form-data">
+            <h4 class="mtext-105 cl2 txt-center p-b-30">
+              Add Products
+            </h4>
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="title" placeholder="Title Product">
+              <img class="how-pos4 pointer-none" src="images/icons/005-tablet.png" alt="ICON" height="24" width="24">
+            </div>
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="number" name="price" placeholder="Price">
+              <img class="how-pos4 pointer-none" src="images/icons/021-get-money.png" alt="ICON" height="24" width="24">
+            </div>
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <select id="size" name="size" class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30">
+                <option value="No" selected>Choose an option</option>
+                <option value="Size S">Size S</option>
+                <option value="Size S">Size M</option>
+                <option value="Size S">Size L</option>
+                <option value="Size S">Size XL</option>
+              </select>
+              <!-- <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="size" placeholder="Size"> -->
+              <img class="how-pos4 pointer-none" src="images/icons/018-clothes.png" alt="ICON" height="24" width="24">
             </div>
 
-            <div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
-              <div class="flex-w w-full p-b-42">
-                <span class="fs-18 cl5 txt-center size-211">
-                  <img src="images/icons/001-arrows.png" alt="ICON" height="24" width="24">
-                  <!-- <span class="lnr lnr-map-marker"> </span> -->
-                </span>
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <select id="color" name="color" class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30">
+                <option value="No" selected>Choose an option</option>
+                <option value="Red">Red</option>
+                <option value="Blue">Blue</option>
+                <option value="White">White</option>
+                <option value="Grey">Grey</option>
+              </select>
 
-                <div class="size-212 p-t-2">
-                  <span class="mtext-110 cl2">
-                    <input type="file" name="myimage1" />
-                  </span>
-
-                  <!-- <p class="stext-115 cl6 size-213 p-t-18">
-                  Coza Store Center 8th floor, 379 Hudson St, New York, NY 10018 US
-                </p> -->
-                </div>
-              </div>
-
-              <div class="flex-w w-full p-b-42">
-                <span class="fs-18 cl5 txt-center size-211">
-                  <img src="images/icons/001-arrows.png" alt="ICON" height="24" width="24">
-                </span>
-
-                <div class="size-212 p-t-2">
-                  <span class="mtext-110 cl2">
-                    <input type="file" name="myimage2" />
-                  </span>
-
-                  <!-- <p class="stext-115 cl1 size-213 p-t-18">
-                  +1 800 1236879
-                </p> -->
-                </div>
-              </div>
-
-              <div class="flex-w w-full">
-                <span class="fs-18 cl5 txt-center size-211">
-                  <img src="images/icons/001-arrows.png" alt="ICON" height="24" width="24">
-                </span>
-
-                <div class="size-212 p-t-2">
-                  <span class="mtext-110 cl2">
-                    <input type="file" name="myimage3" />
-                  </span>
-
-                  <!-- <p class="stext-115 cl1 size-213 p-t-18">
-                  contact@example.com
-                </p> -->
-                </div>
-              </div>
+              <!-- <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="color" placeholder="color"> -->
+              <img class="how-pos4 pointer-none" src="images/icons/007-network.png" alt="ICON" height="24" width="24">
             </div>
-            <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" type="submit" name="submit" value="submit">
-              Submit
-            </button>
-            </form>
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="number" name="quantity" placeholder="quantity">
+              <img class="how-pos4 pointer-none" src="images/icons/023-trolley.png" alt="ICON" height="24" width="24">
+            </div>
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <select id="proType" name="proType" class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30">
+                <option value="No" selected>Choose an option</option>
+                <option value="Women">Women</option>
+                <option value="Men">Men</option>
+                <option value="Bag">Bag</option>
+                <option value="Shoes">Shoes</option>
+                <option value="Watches">Watches</option>
+              </select>
+              <!-- <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="proType" placeholder="proType"> -->
+              <img class="how-pos4 pointer-none" src="images/icons/010-package.png" alt="ICON" height="24" width="24">
+            </div>
+
+            <div class="bor8 m-b-30">
+              <textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="description" placeholder="Description"></textarea>
+            </div>
+        </div>
+
+        <div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
+          <div class="flex-w w-full p-b-42">
+            <span class="fs-18 cl5 txt-center size-211">
+              <img src="images/icons/001-arrows.png" alt="ICON" height="24" width="24">
+              <!-- <span class="lnr lnr-map-marker"> </span> -->
+            </span>
+
+            <div class="size-212 p-t-2">
+              <span class="mtext-110 cl2">
+                <input type="file" name="myimage1" />
+              </span>
+
+              <!-- <p class="stext-115 cl6 size-213 p-t-18">
+                Coza Store Center 8th floor, 379 Hudson St, New York, NY 10018 US
+              </p> -->
+            </div>
+          </div>
+
+          <div class="flex-w w-full p-b-42">
+            <span class="fs-18 cl5 txt-center size-211">
+              <img src="images/icons/001-arrows.png" alt="ICON" height="24" width="24">
+            </span>
+
+            <div class="size-212 p-t-2">
+              <span class="mtext-110 cl2">
+                <input type="file" name="myimage2" />
+              </span>
+
+              <!-- <p class="stext-115 cl1 size-213 p-t-18">
+                +1 800 1236879
+              </p> -->
+            </div>
+          </div>
+
+          <div class="flex-w w-full">
+            <span class="fs-18 cl5 txt-center size-211">
+              <img src="images/icons/001-arrows.png" alt="ICON" height="24" width="24">
+            </span>
+
+            <div class="size-212 p-t-2">
+              <span class="mtext-110 cl2">
+                <input type="file" name="myimage3" />
+              </span>
+
+              <!-- <p class="stext-115 cl1 size-213 p-t-18">
+                contact@example.com
+              </p> -->
+            </div>
           </div>
         </div>
-      </section>
+        <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" type="submit" name="submit" value="submit">
+          Submit
+        </button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-      <!-- Footer -->
-      <% include Footer.ejs %>
-        <!-- Script -->
-        <% include src.ejs %>
+
+
+			<!-- Footer -->
+			<% include footer/Footer.ejs %>
+
 </body>
-
 </html>

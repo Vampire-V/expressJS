@@ -1,47 +1,46 @@
-<link rel="stylesheet" type="text/css" href="stylesheets/login.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%= title %></title>
+  <% include path/href.ejs %>
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/login.css">
+</head>
+<body>
 
 
-<div id="id01" class="modal">
 
-  <form class="modal-content animate" action="/login">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="images/img_avatar2.png" alt="Avatar" class="avatar">
-    </div>
-
-    <div class="container">
-      <label for="uname">
-        <b>Username</b>
-      </label>
-      <input class="log" type="text" placeholder="Enter Username" name="uname" required>
-
-      <label for="psw">
-        <b>Password</b>
-      </label>
-      <input class="log" type="password" placeholder="Enter Password" name="psw" required>
-
-      <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot
-        <a href="#">password?</a>
-      </span>
-    </div>
-  </form>
-</div>
+    <form class="form-signin" method="POST" action="/login">
+        <div class="text-center mb-4">
+          <img class="mb-4" src="images/img_avatar2.png"  alt="" width="72" height="72">
+          <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+          <!-- <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, and Firefox.</a></p> -->
+        </div>
+  
+        <div class="form-label-group">
+          <input type="text" id="inputUname" class="form-control" placeholder="Username" name="uname" required autofocus>
+          <label for="inputUname">User Name</label>
+        </div>
+  
+        <div class="form-label-group">
+          <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="psw" required>
+          <label for="inputPassword">Password</label>
+        </div>
+  
+        <!-- <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div> -->
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+      </form>
 
 
-<!-- Check Password -->
-<script>
-  // Get the modal
-  var modal = document.getElementById('id01');
 
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-</script>
+
+</body>
+</html>
