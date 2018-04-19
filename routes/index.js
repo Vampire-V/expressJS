@@ -55,7 +55,7 @@ router.get('/shop',  (req, res, next) => {
 });
 
 
-
+router.post('/addProduct',product_controller.product_create_post);
 router.get('/add' ,product_controller.product_create_get);
 
 module.exports = router;

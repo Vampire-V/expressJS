@@ -45,7 +45,7 @@ exports.product_create_post = (req,res,next) => {
             if (err) {
                 return next(err)
             } else {
-                return res.redirect('/getproduct');
+                return res.redirect('/shop');
             }
         });
         // res.send('NOT IMPLEMENTED: Author create POST');
