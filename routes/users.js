@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const passport = require('passport');
-const pepleModel = require('../models/people');
+const peopleModel = require('../models/people');
 
 
 const csrf = require("csurf");
@@ -12,14 +12,20 @@ router.use(csrfProtection);
 
 /* GET Profile page. User */
 router.get('/profile', isLoggedIn, (req, res, next) => {
-  pepleModel.find().find((err, data) => {
+  peopleModel.find().find((err, data) => {
     res.render('profile', {
       User: data
     })
   });
 });
 
-router.use('/',notLoggedIn,(req,res,next) => {
+router.get('/logout', isLoggedIn, (req, res, next) => {
+  req.logout();
+  res.redirect('/')
+
+})
+
+router.use('/', notLoggedIn, (req, res, next) => {
   next();
 })
 // Login && Logout && register
@@ -53,11 +59,7 @@ router.post('/login/user', passport.authenticate('local.signin', {
   failureFlash: true
 }));
 
-router.get('/logout', (req, res, next) => {
-  req.logout();
-  res.redirect('/')
 
-})
 
 
 

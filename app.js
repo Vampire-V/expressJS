@@ -12,6 +12,7 @@ const validator = require('express-validator');
 const User = require('./models/people');
 const csrf = require('csurf');
 const LocalStrategy = require('passport-local').Strategy;
+const MongoStore = require('connect-mongo')(session);
 
 const mongoDB = 'mongodb://pipat1234:pipat1234@ds257838.mlab.com:57838/mydb';
 
@@ -123,8 +124,14 @@ app.use(cookieParser());
 app.use(session({
   secret: 'mysupersecret',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  cookie: { maxAge:180 * 60 * 1000 }
 }));
+// app.use(function(req, res, next) {
+//   req.session.cookie.maxAge = 180 * 60 * 1000; // 3 hours
+//    next();
+// });
 
 app.use(flash());
 app.use(passport.initialize());
@@ -134,7 +141,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res, next) {
   //เช็คการเข้าใช้งาน
   res.locals.login = req.isAuthenticated();
+  res.locals.session = req.session;
   console.log(res.locals.login);
+  console.log(res.locals.session);
   
   next();
 });
