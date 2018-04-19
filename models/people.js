@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
+const bcrypt = require('bcrypt-nodejs');
 
 // create a schema
 const peopleSchema = new Schema({
@@ -14,7 +14,11 @@ const peopleSchema = new Schema({
         type: String,
         required: true
     },
-    email: String,
+    email:{
+        type: String,
+        required: true,
+        unique: true
+    },
     gender: {
         type: String,
         enum: ["male", "female"]
@@ -30,8 +34,13 @@ const peopleSchema = new Schema({
     }
 });
 
-// Turn the schema you created into a "Model".
-// mongoose.model("ModelNameSingular", modelSchema);
-// "ModelNameSingular" will automatically be pluralized for you, and that pluralized version of the model name will also become the name of the MongoDB collection.
+
+peopleSchema.methods.encryptPassword = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(5), null);  
+  };
+  
+  peopleSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);  
+  };
 
 module.exports = mongoose.model("People", peopleSchema);

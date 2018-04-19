@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title><%= title %></title>
+  <title>Login</title>
   <% include path/href.ejs %>
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="stylesheets/login.css">
@@ -13,20 +13,25 @@
 
 
 
-    <form class="form-signin" method="POST" action="/login">
+    <form class="form-signin" method="POST" action="/login/user">
         <div class="text-center mb-4">
           <img class="mb-4" src="images/img_avatar2.png"  alt="" width="72" height="72">
           <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+          <%if (hasErrors) { %>
+            <div class="alert alert-danger" role="alert">
+              <h4 class="alert-heading"> <%= messages%></h4>
+            </div>
+            <% } %>
           <!-- <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, and Firefox.</a></p> -->
         </div>
   
         <div class="form-label-group">
-          <input type="text" id="inputUname" class="form-control" placeholder="Username" name="uname" required autofocus>
+          <input type="text" id="inputUname" class="form-control" placeholder="Username" name="username" required autofocus>
           <label for="inputUname">User Name</label>
         </div>
   
         <div class="form-label-group">
-          <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="psw" required>
+          <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
           <label for="inputPassword">Password</label>
         </div>
   
@@ -35,8 +40,10 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div> -->
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+        <%= csrfToken %>
       </form>
 
 
