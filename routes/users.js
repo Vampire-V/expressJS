@@ -39,7 +39,7 @@ router.get('/register', (req, res, next) => {
 });
 
 router.post('/register/create', passport.authenticate('local.signup', {
-  successRedirect: '/login',
+  successRedirect: '/',
   failureRedirect: '/register',
   failureFlash: true
 }));

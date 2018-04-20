@@ -282,8 +282,9 @@
 								<div class="block2-pic hov-img0">
 									<!-- <img src="images/product-01.jpg" alt="IMG-PRODUCT"> -->
 									<img src="<%= products[i].img.part1.substring(7) %>" alt="IMG-PRODUCT">
-
-									<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+									
+									<!-- js-show-modal1 -->
+									<a href="/add-to-cart/<%= products[i]._id %>"  class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 " >
 										Quick View
 									</a>
 								</div>

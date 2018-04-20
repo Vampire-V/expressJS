@@ -142,9 +142,6 @@ app.use(function (req, res, next) {
   //เช็คการเข้าใช้งาน
   res.locals.login = req.isAuthenticated();
   res.locals.session = req.session;
-  console.log(res.locals.login);
-  console.log(res.locals.session);
-  
   next();
 });
 

@@ -20,7 +20,6 @@ exports.product_create_get = (req,res,next) => {
 
 // Handle Author create on POST.
 exports.product_create_post = (req,res,next) => {
-
     if (req.body.title &&
         req.body.price &&
         req.body.size &&
@@ -41,10 +40,16 @@ exports.product_create_post = (req,res,next) => {
             proType: req.body.proType,
             description: req.body.description
         })
+        console.log(productData);
+        
         Product.create(productData, function (err, user) {
+            console.log("กำลังบันทึก");
+            
             if (err) {
+                console.log("เออเรอ");
                 return next(err)
             } else {
+                console.log("บันทึกแล้ว");
                 return res.redirect('/shop');
             }
         });
